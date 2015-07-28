@@ -12,21 +12,24 @@ function hugs_menu() {
 
 function hugs_theme($existing, $type, $theme, $path) {
   return array(
-    'hugs_hug' => array(
+    'hugs_template' => array(
       'variables' => array(
         'from' => NULL,
         'to' => NULL,
       ),
+      'template' => 'hugs_template',
     ),
   );    
 } 
 
 function hugs_hug($from = '', $to = '') {
-  return theme('hugs_hug', array('from' => $from, 'to' => $to));
-}
-
-function theme_hugs_hug($variables) {
-  $output = "<p><strong>" . $variables['from'] . "</strong> hugs <em>" . $variables['to'] . "</em>.";
+  $output = array(
+    '#theme' => 'hugs_template',
+    '#type' => 'markup',
+    '#from' => $from,
+    '#to' => $to,
+  );
   return $output;
 }
+
 
