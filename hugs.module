@@ -1,0 +1,19 @@
+<?php
+function hugs_menu() {
+  $items['hugs/%/%'] = array(
+    'title' => 'Hugs',
+    'page callback' => 'hugs_hug',
+    'page arguments' => array(1,2),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+function hugs_hug($to = '', $from = '', &$variables) {
+  return t('<strong>@to</strong> hugs <em>@from</em>.',
+    array('@to' => $to, '@from' => $from)
+  );
+}
+
+

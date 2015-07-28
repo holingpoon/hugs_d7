@@ -1,0 +1,5 @@
+name = Hugs
+description = Drupal 7 version of hugs
+package = Drupal Crash Course
+core = 7.x
+files[] = hugs.module
