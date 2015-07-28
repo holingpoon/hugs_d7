@@ -26,8 +26,8 @@ function hugs_hug($from = '', $to = '') {
   $output = array(
     '#theme' => 'hugs_template',
     '#type' => 'markup',
-    '#from' => $from,
-    '#to' => $to,
+    '#from' => t($from),
+    '#to' => t($to),
   );
   return $output;
 }
