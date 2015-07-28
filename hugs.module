@@ -10,10 +10,23 @@ function hugs_menu() {
   return $items;
 }
 
-function hugs_hug($to = '', $from = '', &$variables) {
-  return t('<strong>@to</strong> hugs <em>@from</em>.',
-    array('@to' => $to, '@from' => $from)
-  );
+function hugs_theme($existing, $type, $theme, $path) {
+  return array(
+    'hugs_hug' => array(
+      'variables' => array(
+        'from' => NULL,
+        'to' => NULL,
+      ),
+    ),
+  );    
+} 
+
+function hugs_hug($from = '', $to = '') {
+  return theme('hugs_hug', array('from' => $from, 'to' => $to));
 }
 
+function theme_hugs_hug($variables) {
+  $output = "<p><strong>" . $variables['from'] . "</strong> hugs <em>" . $variables['to'] . "</em>.";
+  return $output;
+}
 
